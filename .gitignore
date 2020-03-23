@@ -83,3 +83,9 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+/gradlew.bat
+/gradlew
+/gradle
+/app/.gitignore
+/app/build
+/app/libs
