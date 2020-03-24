@@ -1,7 +1,10 @@
 package com.custom.glide.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
+
+import com.custom.glide.load.RequestTargetEngine;
 
 /**
  * 管理生命周期
@@ -12,10 +15,12 @@ import android.app.Fragment;
  * CSDN:http://blog.csdn.net/yin13753884368/article
  * Github:https://github.com/taxiao213
  */
+@SuppressLint("ValidFragment")
 public class RequestManagerFragment extends Fragment {
     private LifecycleCallback lifecycleCallback;
 
-    public void setLifecycleCallback(LifecycleCallback lifecycleCallback) {
+    @SuppressLint("ValidFragment")
+    public RequestManagerFragment(LifecycleCallback lifecycleCallback) {
         this.lifecycleCallback = lifecycleCallback;
     }
 

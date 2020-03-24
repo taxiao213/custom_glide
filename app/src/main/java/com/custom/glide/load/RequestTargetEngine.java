@@ -39,7 +39,8 @@ public class RequestTargetEngine implements ValueCallback, MemoryCacheCallback, 
     // 使用者可以自己去配置 60M
     private final int MAX_SIZE = 1024 * 1024 * 60;
 
-    public RequestTargetEngine() {
+    public RequestTargetEngine(Context context) {
+        this.context = context;
         if (activeCache == null) {
             activeCache = new ActiveCache(this);
         }
@@ -47,7 +48,7 @@ public class RequestTargetEngine implements ValueCallback, MemoryCacheCallback, 
             memoryCache = new MemoryCache(MAX_SIZE, this);
         }
         if (diskLruCache == null) {
-            diskLruCache = new DiskLruCacheImpl();
+            diskLruCache = new DiskLruCacheImpl(context);
         }
         if (lruBitmapPool == null) {
             lruBitmapPool = new LruBitmapPool(MAX_SIZE);
@@ -55,9 +56,8 @@ public class RequestTargetEngine implements ValueCallback, MemoryCacheCallback, 
     }
 
     // 拿到要显示的图片路径
-    public void load(String path, Context context) {
+    public void load(String path) {
         this.path = path;
-        this.context = context;
         this.key = new Key(path).getKey();
     }
 

@@ -38,8 +38,8 @@ public class DiskLruCacheImpl {
 
     private DiskLruCache diskLruCache;
 
-    public DiskLruCacheImpl() {
-        File file = Glide.mContext.getDir(DISKLRU_CACHE_DIR, Context.MODE_PRIVATE);
+    public DiskLruCacheImpl(Context context) {
+        File file = context.getDir(DISKLRU_CACHE_DIR, Context.MODE_PRIVATE);
         try {
             diskLruCache = DiskLruCache.open(file, APP_VERSION, VALUE_COUNT, MAX_SIZE);
         } catch (IOException e) {

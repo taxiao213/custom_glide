@@ -13,6 +13,13 @@
         android:gravity="center"
         android:text="加载图片" />
 
+    <Button
+        android:id="@+id/bt_test"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="测试" />
+
     <ImageView
         android:background="@color/colorAccent"
         android:layout_gravity="center_horizontal"

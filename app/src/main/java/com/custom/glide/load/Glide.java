@@ -16,7 +16,6 @@ import android.support.v4.app.FragmentActivity;
  */
 public class Glide {
     private static volatile Glide glide;
-    public static Context mContext;
     private RequestManagerRetriever requestManagerRetriever;
 
     public Glide(RequestManagerRetriever requestManagerRetriever) {
@@ -55,7 +54,6 @@ public class Glide {
 
     @NonNull
     private static RequestManagerRetriever getRetriever(@Nullable Context context) {
-        mContext = context;
         return Glide.get(context).getRequestManagerRetriever();
     }
 

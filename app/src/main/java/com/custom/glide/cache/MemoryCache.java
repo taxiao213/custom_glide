@@ -55,6 +55,8 @@ public class MemoryCache extends LruCache<String, Value> {
 
     /**
      * 被移除时监听
+     * 1.重复的key
+     * 2.最少使用的元素会被移除
      *
      * @param evicted
      * @param key
