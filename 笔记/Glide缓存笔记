@@ -53,7 +53,8 @@ sp == Editor edit
 管理的方式：在Activity组件上 附件Fragment，通过Fragment监听组件的生命周期
 
 Activity ---> app Fragment
-AppCompatActivity --> V4包 Fragment
+FragmentActivity(v4) --> AppCompatActivity(v7) --> V4包 Fragment
+
 为什么发送一次Handler？
 我们的Android基于Handler消息的，LAUNCH_ACTIVITY，为了让我们的fragment，不要再排队中，为了下次可以取出来
 移除Handler
