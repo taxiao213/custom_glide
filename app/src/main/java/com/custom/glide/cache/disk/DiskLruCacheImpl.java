@@ -105,6 +105,7 @@ public class DiskLruCacheImpl {
             if (snapshot != null) {
                 // index 不能大于 VALUE_COUNT
                 inputStream = snapshot.getInputStream(0);
+                // 复用Bitmap地址,避免频繁调用内存空间,防止内存抖动、内存碎片
                 Bitmap bitmap = Tool.getIOBitmap(inputStream, bitmapPool, true);
 
                 Value value = Value.getInstance();

@@ -115,7 +115,7 @@ public class ActiveCache {
     }
 
     /**
-     * 监听弱引用 成为弱引用的子类  为什么要成为弱引用的子类（目的：为了监听这个弱引用 是否被回收了）
+     * （目的：为了监听这个弱引用 是否被回收了）
      */
     public class CustomWeakReference extends WeakReference {
         public String key;

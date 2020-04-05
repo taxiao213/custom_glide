@@ -72,6 +72,7 @@ public class LoadDataManager implements ILoadData, Runnable {
             final int responseCode = httpURLConnection.getResponseCode();
             if (HttpURLConnection.HTTP_OK == responseCode) {
                 inputStream = httpURLConnection.getInputStream();
+                // 复用Bitmap地址,避免频繁调用内存空间,防止内存抖动、内存碎片
                 final Bitmap bitmap = Tool.getIOBitmap(inputStream, null, false);
 
                 new Handler(Looper.getMainLooper()).post(new Runnable() {

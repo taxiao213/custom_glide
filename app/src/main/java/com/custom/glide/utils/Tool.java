@@ -341,6 +341,7 @@ public class Tool {
 
     /**
      * 通过流获取Bitmap
+     * 复用Bitmap地址,避免频繁调用内存空间,防止内存抖动、内存碎片
      *
      * @param inputStream InputStream
      * @param reuse       true 复用  false不复用
@@ -359,7 +360,7 @@ public class Tool {
             // 既然是外部网络加载图片，就不需要用复用池
             Bitmap.Config config = options.inPreferredConfig;
             Bitmap bitmapPoolResult = bitmapPool.get(width, height, config);
-            options.inBitmap = bitmapPoolResult;// bitmapPoolResult为null,不复用地址
+            options.inBitmap = bitmapPoolResult;// bitmapPoolResult为null,不复用地址,复用Bitmap地址,避免频繁调用内存空间,防止内存抖动、内存碎片
         }
         // TODO 复用条件1
         options.inMutable = true;
